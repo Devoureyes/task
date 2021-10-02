@@ -1,7 +1,7 @@
 import './App.css';
-import Search from "./components/Search";
+import Search from "./components/Search/Search";
 import {Route, Switch} from "react-router-dom";
-import Offer from "./components/Offer";
+import Offer from "./components/Offer/Offer";
 
 function App() {
   return (

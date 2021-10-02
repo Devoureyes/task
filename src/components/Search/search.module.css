@@ -1,0 +1,28 @@
+.block {
+    position: relative;
+    height: 30vh;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.38);
+    box-shadow: 0 12px 47px -7px rgba(34, 60, 80, 0.2);
+}
+.searchResultBlock {
+    background-color: #c7e0e5;
+}
+.searchResultInner {
+    position: relative;
+    background-color: white;
+    top: 50px;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 70%;
+    margin: auto;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.38);
+}
+.searchResultHeader {
+    display: flex;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.38);
+    padding: 0 25px;
+}
+.searchResultHeader p {
+    padding: 0 6px;
+}

@@ -19,8 +19,8 @@ const data_reducer = handleActions({
     }),
     [dataFailure]: (state,action) => ({
         ...state,
-        errorMsg: action.payload,
-        fetch: false
+        fetch: false,
+        errorMsg: action.payload
     })
 
 }, initialState)
