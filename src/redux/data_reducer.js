@@ -4,29 +4,38 @@ import {dataFailure, dataRequest, dataSuccess} from "../actions/data_actions";
 const initialState = {
     data: [],
     fetch: false,
-    errorMsg: ''
+    errorMsg: '',
+    page: 1,
+    limit: 10,
+    sort: 'bid'
 }
 
 const data_reducer = handleActions({
-    [dataRequest]: (state, action) => ({
+    [dataRequest]: (state, {payload}) => ({
         ...state,
-        fetch: true
+        fetch: true,
+        page: payload.page,
+        limit: payload.limit,
+        sort: payload.sort
     }),
-    [dataSuccess]: (state,action) => ({
+    [dataSuccess]: (state, {payload}) => ({
         ...state,
         fetch: false,
-        data: action.payload
+        data: payload
     }),
-    [dataFailure]: (state,action) => ({
+    [dataFailure]: (state, {payload}) => ({
         ...state,
         fetch: false,
-        errorMsg: action.payload
-    })
+        errorMsg: payload
+    }),
 
 }, initialState)
 
 export const getData = state => state.data_reducer.data
 export const getFetch = state => state.data_reducer.fetch
 export const getErrorMsg = state => state.data_reducer.errorMsg
+export const getPage = state => state.data_reducer.page
+export const getLimit = state => state.data_reducer.limit
+export const getSort = state => state.data_reducer.sort
 
 export default data_reducer;

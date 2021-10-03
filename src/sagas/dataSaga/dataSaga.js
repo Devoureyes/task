@@ -6,9 +6,9 @@ export default function* dataSagaWatcher() {
     yield takeLatest(dataRequest,dataSaga)
 }
 
-function* dataSaga() {
+function* dataSaga({payload}) {
     try {
-        const res = yield dataAPI.getData()
+        const res = yield dataAPI.getData(payload)
         if (res.status >= 200 && res.status < 400) {
             yield put(dataSuccess(res.data))
         } else {

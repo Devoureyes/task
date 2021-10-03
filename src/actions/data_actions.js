@@ -3,7 +3,7 @@ import {createActions} from 'redux-actions'
 export const {
     dataRequest,
     dataSuccess,
-    dataFailure
+    dataFailure,
 } = createActions({
     DATA_REQUEST:payload=>payload,
     DATA_SUCCESS:payload=>payload,

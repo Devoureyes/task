@@ -1,17 +1,9 @@
 import React from "react";
-import st from './loader.module.css'
+import s from './loader.module.css'
 
-const s = {
-    userSelect: 'none',
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'rgba(108,108,108,0)',
-    display: 'flex',
-    justifyContent: 'center',
-}
-
+// eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
-    return <div style={s}>
-        <div className={st.hourglass}/>
+    return <div className={s.main}>
+        <div className={s.hourglass}/>
     </div>
 }

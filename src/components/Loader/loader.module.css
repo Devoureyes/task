@@ -1,3 +1,13 @@
+.main {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.38);
+    text-align: left;
+    height: 100px;
+}
 .hourglass {
     display: inline-block;
     position: relative;
@@ -14,7 +24,7 @@
     margin: 8px;
     box-sizing: border-box;
     border: 32px solid;
-    border-color: #fff transparent #fff transparent;
+    border-color: #00ff6f transparent #00ff2b transparent;
     animation: hourglass 1.2s infinite;
 }
 @keyframes hourglass {

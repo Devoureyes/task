@@ -12,8 +12,8 @@ const instance = axios.create({
 
 
 export const dataAPI = {
-    getData() {
-        return instance.get('data');
+    getData({page,limit,sort}) {
+        return instance.get(`data?page=${page}&limit=${limit}&sort=${sort}`);
         //return fetch('http://localhost:3001/api/data').then(res => res.json());
     }
 }
