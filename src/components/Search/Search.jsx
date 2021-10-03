@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {getData, getErrorMsg, getFetch, getLimit, getPage, getSort} from "../../redux/data_reducer";
 import {dataRequest} from "../../actions/data_actions";
 import {connect} from 'react-redux';
@@ -12,13 +12,17 @@ const Search = ({data,page,sort,limit,fetch, errorMsg, dataRequest}) => {
     useEffect(() => {
         if (data.length === 0) {
             dataRequest({page,limit,sort})
-
         }
-    }, [dataRequest, data.length])
-    const setSort = (str) => {
-        dataRequest({page,limit,sort:str})
-    }
+        setFetchNew(false)
+    }, [dataRequest, data])
 
+    const setSort = (str) => {
+        if (sort !== str) {
+            setFetchNew(true)
+            dataRequest({page, limit, sort: str})
+        }
+    }
+    const [fetchNew,setFetchNew] = useState(false)
     if (errorMsg) {
         return <ErrorMessage errorMsg={errorMsg}/>
     }
@@ -37,7 +41,7 @@ const Search = ({data,page,sort,limit,fetch, errorMsg, dataRequest}) => {
                     <p className={sort==='bid' ? s.sortBtnChoose : s.sortBtn} onClick={() => setSort('bid')}>по ставке</p>
                     <p className={sort==='sum' ? s.sortBtnChoose : s.sortBtn} onClick={() => setSort('sum')}>по сумме</p>
                 </div>
-                {data.map((el, i) => <OfferItem key={i} i={i} offer={el}/>)}
+                {data.map((el, i) => fetchNew ? <Loader /> : <OfferItem key={i} i={i} offer={el}/>)}
                 {fetch && <Loader />}
                 <button className={s.button} onClick={moreData}>Ещё</button>
             </div>
