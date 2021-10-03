@@ -1,0 +1,87 @@
+.offerParent {
+    background-image: url("https://i.redd.it/et6ow3dkxll31.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 6vh 6vw;
+}
+.offer {
+    height: 88vh;
+    width: 88vw;
+    border-radius: 25px;
+    border: 2px solid rgba(11, 169, 0, 0.65);
+    background: #e0e0e0;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+.offer > div {
+    margin: 1vh;
+    background-color: #ffffff;
+    border-radius: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+}
+.offer > div:nth-child(1) {
+    display: flex;
+    justify-content: space-around;
+    padding: 150px 20px;
+    flex-direction: column;
+}
+.offer > div:nth-child(2) {
+    width: 100%;
+    overflow: hidden;
+    padding: 25px;
+}
+
+.header {
+    display: flex;
+    height: 35px;
+}
+.header > div {
+    flex: 1;
+}
+.content {
+
+}
+.license {
+    color: rgba(0, 0, 0, 0.37);
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1024px){
+    .offer {
+        flex-direction: column;
+    }
+    .offer > div:nth-child(1) {
+        flex-direction: row;
+        text-align: left;
+        padding: 20px 100px;
+    }
+    .offer > div:nth-child(1) p {
+        margin: 0;
+    }
+    .offer > div:nth-child(2) {
+        width: auto;
+        height: 100%;
+    }
+    .offerParent {
+        padding: 3vh 3vw;
+    }
+    .offer {
+        height: 94vh;
+        width: 94vw;
+    }
+}
+@media screen and (max-width: 767px){
+    .offer > div:nth-child(1) {
+        padding: 20px 0px;
+    }
+}
+@media screen and (max-width: 538px) {
+    .offer > div:nth-child(1) > div:nth-child(2) {
+        display: none;
+    }
+    .offer > div:nth-child(1) > div:nth-child(3) {
+        display: none;
+    }
+}

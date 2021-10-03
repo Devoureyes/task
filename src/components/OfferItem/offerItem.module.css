@@ -1,4 +1,7 @@
 .offerItem {
+    display: block;
+}
+.desktopOfferItem {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
@@ -8,7 +11,10 @@
     text-align: left;
     height: 100px;
 }
-
+.mobileOfferItem {
+    display: none;
+    height: 200px;
+}
 .organization {
     display: flex;
     flex-flow: column nowrap;
@@ -28,7 +34,7 @@
     font-size: 12px;
     margin: 2px 0;
 }
-.offerItem > div {
+.desktopOfferItem > div {
     flex: 1;
     margin-left: 1vw;
 }
@@ -55,6 +61,7 @@
 }
 
 .organizationLogo {
+    object-fit: contain;
     width: 100px;
     /*background-size: auto;*/
     /*background-position: center;*/
@@ -88,4 +95,90 @@
 .button:active {
     position:relative;
     top:1px;
+}
+
+@media screen and (max-width: 1024px) {
+    .offerItem {
+        background-color: white;
+        margin: 8px;
+        font-size: 12px;
+        border-radius: 5px;
+    }
+    .desktopOfferItem {
+        display: none;
+    }
+    .mobileOfferItem {
+        display: block;
+    }
+    .mobHeader {
+        display: flex;
+        user-select: none;
+        height: 20%;
+        align-items: center;
+    }
+    .mobHeaderLeft {
+        display: flex;
+        width: 50%;
+        text-align: left;
+        align-items: center;
+    }
+    .mobHeaderLeftP {
+        padding: 0 0 0 5%!important;
+        opacity: .5;
+    }
+    .organizationLogo {
+        padding: 0 0 0 5%!important;
+        margin: 0!important;
+    }
+    .mobLicense {
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        white-space: nowrap;
+    }
+    .mobLicense p {
+        height: 10%;
+        margin: 0 0 0 5px;
+        opacity: .5;
+    }
+    .mobLicenseLine {
+        width: 90%;
+        border-bottom: 2px solid #a6a6a6;
+        opacity: .5;
+    }
+    .mobContent {
+        display: flex;
+        height: 70%;
+    }
+    .mobContentLeft {
+        text-align: left;
+        padding-left: 2.5%;
+        width: 47.5%;
+    }
+    .organizationLogo {
+        padding-top: 10px;
+    }
+    .mobContentLeft p:nth-child(1) {
+        margin: 0;
+        padding-top: 25px;
+    }
+    .mobContentRight {
+        width: 50%;
+    }
+    .mobContentRightTop {
+        height: 50%;
+        text-align: left;
+    }
+    .mobContentRightTop p {
+        padding-top: 5%;
+    }
+    .button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .mobHeaderLeftP {
+        display: none;
+    }
 }

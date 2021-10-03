@@ -7,7 +7,8 @@ const initialState = {
     errorMsg: '',
     page: 1,
     limit: 10,
-    sort: 'bid'
+    sort: 'bid',
+    length: null
 }
 
 const data_reducer = handleActions({
@@ -21,7 +22,8 @@ const data_reducer = handleActions({
     [dataSuccess]: (state, {payload}) => ({
         ...state,
         fetch: false,
-        data: payload
+        data: payload.data,
+        length: payload.length
     }),
     [dataFailure]: (state, {payload}) => ({
         ...state,
@@ -37,5 +39,6 @@ export const getErrorMsg = state => state.data_reducer.errorMsg
 export const getPage = state => state.data_reducer.page
 export const getLimit = state => state.data_reducer.limit
 export const getSort = state => state.data_reducer.sort
+export const getLength = state => state.data_reducer.length
 
 export default data_reducer;

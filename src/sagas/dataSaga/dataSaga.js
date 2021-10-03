@@ -10,7 +10,7 @@ function* dataSaga({payload}) {
     try {
         const res = yield dataAPI.getData(payload)
         if (res.status >= 200 && res.status < 400) {
-            yield put(dataSuccess(res.data))
+            yield put(dataSuccess({data:res.data.payload,length: res.data.length}))
         } else {
             yield put(dataFailure('Error 1'))
         }

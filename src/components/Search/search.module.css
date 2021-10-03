@@ -25,7 +25,7 @@
     background-color: white;
     display: flex;
     flex-flow: column nowrap;
-    width: 70%;
+    width: 1200px;
     margin: auto;
     border-radius: 5px;
     border: 1px solid rgba(128, 128, 128, 0.38);
@@ -58,4 +58,48 @@
 .button:active {
     position:relative;
     top:1px;
+}
+.sortText {
+    display: block;
+}
+.select {
+    display: none;
+    margin: 15px;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 3px 5px;
+    width: 30%;
+    font-family: inherit;
+    cursor: inherit;
+    line-height: inherit;
+}
+.select option {
+    font-size: 160%;
+}
+.items {
+
+}
+@media screen and (max-width: 1280px) {
+    .searchResultInner {
+        width: 95%;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .searchResultInner {
+        width: 100%;
+    }
+    .items {
+        background-color: #e5e5e5;
+    }
+    .searchResultHeader {
+        background-color: white;
+    }
+    .sortBtnChoose, .sortBtn,.sortText {
+        display: none;
+    }
+    .select {
+        display: block;
+    }
 }
