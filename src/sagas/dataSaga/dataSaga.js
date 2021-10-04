@@ -16,6 +16,6 @@ function* dataSaga({payload}) {
         }
     } catch (e) {
         console.log(e)
-        yield put(dataFailure('Error 2'))
+        yield put(dataFailure('Error network'))
     }
 }

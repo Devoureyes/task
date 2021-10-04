@@ -43,7 +43,7 @@ const Search = ({data,page,sort,limit,length,fetch, errorMsg, dataRequest}) => {
                     <p className={sort==='sum' ? s.sortBtnChoose : s.sortBtn} onClick={() => setSort('sum')}>по сумме</p>
                 </div>
                 <div className={s.items}>
-                    {data.map((el, i) => fetchNew ? <Loader/> : <OfferItem key={i} i={i} offer={el}/>)}
+                    {data.map((el, i) => fetchNew ? <Loader key={i}/> : <OfferItem key={i} i={i} offer={el}/>)}
                     {fetch && <Loader/>}
                     {data.length !== length &&<button className={s.button} onClick={moreData}>Ещё +{dataLength}/{length-data.length}</button>}
                 </div>

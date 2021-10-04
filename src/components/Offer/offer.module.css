@@ -21,11 +21,21 @@
     border-radius: 25px;
     border: 1px solid rgba(0, 0, 0, 0.18);
 }
+.offer img {
+    user-select: none;
+}
 .offer > div:nth-child(1) {
     display: flex;
     justify-content: space-around;
     padding: 150px 20px;
     flex-direction: column;
+}
+.offer > div:nth-child(1) h1 {
+    font-size: 18px;
+    margin-bottom: 0;
+}
+.offer > div:nth-child(1) p {
+    margin: 0;
 }
 .offer > div:nth-child(2) {
     width: 100%;
@@ -41,13 +51,75 @@
     flex: 1;
 }
 .content {
-
+    height: 95%;
 }
 .license {
     color: rgba(0, 0, 0, 0.37);
     font-size: 14px;
 }
+.button {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    width: 90%;
+    height: 30px;
+    margin: auto;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease 0s, box-shadow 0.2s ease 0s;
+}
+.button:disabled {
+    background-color: #adadad;
 
+}
+.button {
+    background-color:#0dd149;
+
+}
+.button:hover:enabled {
+    box-shadow: 0 10px 6px -4px rgba(13, 209, 73, 0.66);
+}
+.button:active {
+    position:relative;
+    top:1px;
+}
+
+
+/*
+Requirements + Conditions
+ */
+.reqCon {
+    height: 100%;
+}
+.reqConHeader {
+    height: 10%;
+}
+.reqConHeader h1 {
+    font-size: 20px;
+}
+.reqConContent {
+    overflow-wrap: anywhere;
+    display: flex;
+    flex-flow: nowrap column;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    border-radius: 25px;
+    overflow: hidden;
+}
+.reqConContent > div:nth-child(2n) {
+    background-color: #cbcbcb;
+}
+.reqConContent > div {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+.reqConContent > div > div {
+    flex: 1;
+    text-align: left;
+    padding: 1%;
+}
 @media screen and (max-width: 1024px){
     .offer {
         flex-direction: column;
@@ -73,11 +145,21 @@
     }
 }
 @media screen and (max-width: 767px){
+    .offerParent {
+        height: 100vh;
+    }
+
+    .offer {
+        height: auto;
+    }
     .offer > div:nth-child(1) {
-        padding: 20px 0px;
+        padding: 20px 0;
     }
 }
 @media screen and (max-width: 538px) {
+    .offer > div:nth-child(1) {
+        text-align: center;
+    }
     .offer > div:nth-child(1) > div:nth-child(2) {
         display: none;
     }

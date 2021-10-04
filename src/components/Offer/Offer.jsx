@@ -6,11 +6,10 @@ import {compose} from "redux";
 import {dataRequest} from "../../actions/data_actions";
 import Loader from "../Loader/Loader";
 import s from './offer.module.css'
-import st from '../OfferItem/offerItem.module.css'
 import Conditions from "./Conditions";
 import Requirements from "./Requirements";
 
-const Offer = ({data, fetch, page, limit, sort, dataRequest, match}) => {
+const Offer = ({data, page, limit, sort, dataRequest, match}) => {
     useEffect(() => {
         if (data.length === 0) {
             dataRequest({page, limit, sort})
@@ -18,12 +17,13 @@ const Offer = ({data, fetch, page, limit, sort, dataRequest, match}) => {
     }, [dataRequest, data])
     const [view,setView] = useState(true)
     const offer = data[match.params.id]
-    console.log(offer)
+    console.log(offer?.rate)
     return data.length === 0 ? <Loader type={2}/> : <div className={s.offerParent}>
         <div className={s.offer}>
             <div>
                 <div>
                     <img src={offer.organization.logo} alt=""/>
+                    <h1>{offer.organization.name}</h1>
                     <p className={s.license}>Лицензия № {offer.organization.license}</p>
                 </div>
                 <div>
@@ -37,13 +37,13 @@ const Offer = ({data, fetch, page, limit, sort, dataRequest, match}) => {
             </div>
             <div>
                 <div className={s.header}>
-                    <div><button onClick={() => setView(true)} className={st.button}>Условия</button></div>
-                    <div><button onClick={() => setView(false)} className={st.button}>Требования</button></div>
+                    <div><button disabled={view} onClick={() => setView(true)} className={s.button}>Условия</button></div>
+                    <div><button disabled={!view} onClick={() => setView(false)} className={s.button}>Требования</button></div>
                 </div>
                 <div className={s.content}>
                     {view
-                        ? <Conditions lol={1}/>
-                        : <Requirements lol={2}/>}
+                        ? <Conditions con={offer.rate}/>
+                        : <Requirements req={offer.customerRequirements}/>}
                 </div>
             </div>
         </div>
