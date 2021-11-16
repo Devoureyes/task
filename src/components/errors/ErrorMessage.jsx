@@ -6,3 +6,4 @@ export default ({errorMsg}) => {
         <h3>{errorMsg}</h3>
     </div>
 }
+

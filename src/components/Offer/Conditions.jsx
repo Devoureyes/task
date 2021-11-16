@@ -8,6 +8,7 @@ export default ({con}) => (
         <div className={s.reqConContent}>
             <div>
                 <div>Сумма</div>
+                {React.createElement('div',null,'Сумма')}
                 <div>{con.creditAmount.from} ₽ {!!con.creditAmount.to && ` - ${con.creditAmount.to} ₽`}</div>
             </div>
             <div>
